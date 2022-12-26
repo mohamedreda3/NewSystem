@@ -9,10 +9,7 @@ module.exports = class {
     constructor() { }
     async logIn(req, res) {
         let { email, password, type } = req.body;
-        
         type = type && type.length > 0 ? str.convertFirstLetterToUpper(type) : type;
-
-
         password = password ? md5(password) : password;
         const acc = await userModel.findOne({ email: email, password: password, type: type });
         if (acc != null && acc != undefined && acc.length != 0) {
