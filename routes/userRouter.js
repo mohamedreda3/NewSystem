@@ -1,0 +1,11 @@
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/userController');
+const user = new userController();
+router.post("/signup", (req, res) => user.signUp(req, res));
+router.post('/confirmCode', (req, res) => user.confirmCode(req, res));
+router.post('/login', (req, res) => user.logIn(req, res));
+router.post('/updatePassword', (req, res) => user.updatePassword(req, res));
+router.post('/resetPassword', (req, res) => user.resetPassword(req, res));
+router.post('/uploadFile', (req, res) => user.uploadFile(req, res));
+module.exports = router;
